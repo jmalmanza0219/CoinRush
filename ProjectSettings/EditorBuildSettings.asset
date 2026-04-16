@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 6a3382030a70b4541bac1b21692394e9
+  - enabled: 1
+    path: Assets/Scenes/FactoryArena.unity
+    guid: 2afb0a6edcfde744199333ca098131c3
+  - enabled: 1
+    path: Assets/Scenes/ForestArena.unity
+    guid: fb3181dbdbc1fcb49a1037d036bd7c26
+  - enabled: 1
+    path: Assets/Scenes/Results.unity
+    guid: d2276910dbcf47d49a4c85e73ddcaa57
+  - enabled: 1
+    path: Assets/Scenes/HighScores.unity
+    guid: 15dca7ec80cc3214dbc34c7129e75912
   m_configObjects: {}

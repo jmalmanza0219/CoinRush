@@ -7,21 +7,31 @@ public class NetworkUI : MonoBehaviour
 {
     [SerializeField] private TMP_InputField ipInput;
     [SerializeField] private TMP_InputField portInput;
+
     [SerializeField] private GameObject connectionPanel;
+    [SerializeField] private GameObject arenaSelectPanel;
 
     private const ushort DefaultPort = 7777;
+
+    private void Start()
+    {
+        if (connectionPanel != null)
+            connectionPanel.SetActive(true);
+
+        if (arenaSelectPanel != null)
+            arenaSelectPanel.SetActive(false);
+    }
 
     public void StartHost()
     {
         ushort port = GetPort();
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
 
-        // Host listens on all local addresses.
         transport.SetConnectionData("127.0.0.1", port, "0.0.0.0");
 
         if (NetworkManager.Singleton.StartHost())
         {
-            connectionPanel.SetActive(false);
+            ShowArenaSelect();
             Debug.Log("Host started.");
         }
     }
@@ -36,7 +46,7 @@ public class NetworkUI : MonoBehaviour
 
         if (NetworkManager.Singleton.StartClient())
         {
-            connectionPanel.SetActive(false);
+            HideConnectionOnly();
             Debug.Log($"Client started. Connecting to {ip}:{port}");
         }
     }
@@ -47,5 +57,23 @@ public class NetworkUI : MonoBehaviour
             return parsedPort;
 
         return DefaultPort;
+    }
+
+    private void ShowArenaSelect()
+    {
+        if (connectionPanel != null)
+            connectionPanel.SetActive(false);
+
+        if (arenaSelectPanel != null)
+            arenaSelectPanel.SetActive(true);
+    }
+
+    private void HideConnectionOnly()
+    {
+        if (connectionPanel != null)
+            connectionPanel.SetActive(false);
+
+        if (arenaSelectPanel != null)
+            arenaSelectPanel.SetActive(false);
     }
 }
