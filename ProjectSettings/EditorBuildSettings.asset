@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FactoryArena.unity
     guid: 2afb0a6edcfde744199333ca098131c3
   - enabled: 1
-    path: Assets/Scenes/ForestArena.unity
+    path: Assets/Scenes/FactoryArena.unity
     guid: fb3181dbdbc1fcb49a1037d036bd7c26
   - enabled: 1
     path: Assets/Scenes/Results.unity
